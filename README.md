@@ -34,7 +34,9 @@ npm run build
 | `HCLOUD_MCP_ALLOW_DESTRUCTIVE` | `false` | Allow delete/shutdown and other confirmed mutations |
 | `HCLOUD_MCP_LOG_LEVEL` | `info` | Log level |
 
-Copy [`.env.example`](.env.example) for a template.
+Copy [`.env.example`](.env.example) for a local template. The server reads process environment variables only; it does not load `.env`. Pass `HCLOUD_TOKEN` in the client `env` block below, or start the process with `node --env-file=.env dist/index.js`.
+
+`hcloud version` does not prove the token works. Check API access with `hcloud server list` after the token is in the environment, and do not print the token.
 
 ## Run
 
@@ -42,7 +44,7 @@ Copy [`.env.example`](.env.example) for a template.
 npm run start
 ```
 
-Stdio transport only (for Cursor, Claude Desktop, etc.).
+Stdio transport only (for Cursor, Claude Desktop, etc.). `npm start` does not load `.env`.
 
 ## MCP client config (Cursor)
 
